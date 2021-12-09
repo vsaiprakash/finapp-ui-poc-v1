@@ -4,4 +4,8 @@
         <router-outlet></router-outlet>
     </div>
 </div> -->
+<div class="d-flex align-items-center" *ngIf="loading">
+    <strong class="m-5">Loading...</strong>
+    <div class="spinner-border ml-auto m-5" style="width: 3rem; height: 3rem;" role="status" aria-hidden="true"></div>
+</div>
 <router-outlet></router-outlet>
