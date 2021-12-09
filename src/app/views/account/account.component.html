@@ -1,10 +1,18 @@
 <h1 class="display-4 text-center">Account</h1>
-<p>
-    Selected Account Id: {{accountId}}
-</p>
-<p>
-    {{data | json}}
-</p>
+<div class="container m-4">
+    <div class="row">
+        <div class="col font-weight-bold">Accound Id</div>
+        <div class="col">{{data.accountId}}</div>
+    </div>
+    <div class="row">
+        <div class="col font-weight-bold">Name</div>
+        <div class="col">{{data.name}}</div>
+    </div>
+    <div class="row">
+        <div class="col font-weight-bold">Accound Type</div>
+        <div class="col">{{data.accountType}}</div>
+    </div>
+</div>
 <div class="accordion" id="accordionExample">
     <div class="card">
         <div class="card-header" id="headingOne">
