@@ -12,6 +12,7 @@ import { ShellComponent } from './layout/shell/shell.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { DataService } from './services/data.service';
 import { AccountResolver } from './services/account.resolver';
+import { AddAccountComponent } from './forms/add-account/add-account.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AccountResolver } from './services/account.resolver';
     HeaderComponent,
     AccountComponent,
     ShellComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddAccountComponent
   ],
   imports: [
     BrowserModule,

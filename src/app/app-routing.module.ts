@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddAccountComponent } from './forms/add-account/add-account.component';
 import { ShellComponent } from './layout/shell/shell.component';
 import { AccountResolver } from './services/account.resolver';
 import { AccountsResolver } from './services/accounts.resolver';
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: '',   redirectTo: '/accounts', pathMatch: 'full' },
       { path: 'daybook', component: DaybookComponent },
       { path: 'accounts', resolve: { accounts: AccountsResolver }, component: AccountsComponent },
-      { path: 'account/:accountId', resolve: { account: AccountResolver }, component: AccountComponent }
+      { path: 'account/:accountId', resolve: { account: AccountResolver }, component: AccountComponent },
+      { path: 'add-account', component: AddAccountComponent }
     ]
   },
   { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
