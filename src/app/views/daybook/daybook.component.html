@@ -1,0 +1,36 @@
+<h1 class="display-4 text-center">Day Book</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Type</th>
+            <th scope="col">ID</th>
+            <th scope="col">Debit/In</th>
+            <th scope="col">Credit/Out</th>
+            <th scope="col">Total Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let transaction of data">
+            <tr>
+                <th scope="row">{{transaction.date}}</th>
+                <td>{{transaction.type}}</td>
+                <td>{{transaction.id}}</td>
+                <td>{{transaction.debitIn}}</td>
+                <td>{{transaction.creditOut}}</td>
+                <td>{{transaction.totalAmt}}</td>
+            </tr>
+        </ng-container>
+    </tbody>
+</table>
+<form>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="First name">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Last name">
+      </div>
+    </div>
+  </form>
+
