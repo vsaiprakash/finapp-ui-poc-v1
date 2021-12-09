@@ -6,14 +6,14 @@
     "docb": "",
     "loans": [
         {
-            "dot": "",
+            "dot": "10/10/2009",
             "amount": 1200,
-            "month": ""
+            "month": "January"
         },
         {
-            "dot": "",
+            "dot": "10/10/2019",
             "amount": 1000,
-            "month": ""
+            "month": "February"
         }
     ],
     "waivers": [
