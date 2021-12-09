@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -10,10 +11,11 @@ export class AccountsComponent implements OnInit {
 
   data:any;
 
-  constructor(private dataService: DataService) {
-    this.dataService.getAccounts().subscribe(data => {
-      this.data = data;
-    })
+  constructor(private dataService: DataService, private route: ActivatedRoute) {
+    this.data = this.route.snapshot.data['accounts'];
+    // this.dataService.getAccounts().subscribe(data => {
+    //   this.data = data;
+    // });
   }
 
   ngOnInit(): void {

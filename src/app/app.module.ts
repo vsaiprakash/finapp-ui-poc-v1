@@ -10,6 +10,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { AccountComponent } from './views/account/account.component';
 import { ShellComponent } from './layout/shell/shell.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { DataService } from './services/data.service';
+import { AccountResolver } from './services/account.resolver';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    DataService,
+    AccountResolver
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,10 +21,11 @@ export class AccountComponent implements OnInit {
     this.route.params.subscribe( params => {
       console.log(params);
       this.accountId = params['accountId'];
-      this.dataService.getAccount(this.accountId).subscribe(data => {
-        this.data = data;
-        this.loans = this.data['loans'];
-      })
+      this.data = this.route.snapshot.data['account'];
+      // this.dataService.getAccount(this.accountId).subscribe(data => {
+      //   this.data = data;
+      //   this.loans = this.data['loans'];
+      // });
     });
   }
 
