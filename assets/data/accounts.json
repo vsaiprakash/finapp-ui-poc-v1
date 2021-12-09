@@ -1,0 +1,17 @@
+[
+    {
+      "accountId": "00001",
+      "name": "John Doe",
+      "accountType": "PARTNER"
+    },
+    {
+      "accountId": "00002",
+      "name": "Jane Doe",
+      "accountType": "BORROWER"
+    },
+    {
+      "accountId": "00003",
+      "name": "John John",
+      "accountType": "PARTNER"
+    }
+  ]

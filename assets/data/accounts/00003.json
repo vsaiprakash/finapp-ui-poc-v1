@@ -1,0 +1,39 @@
+{
+    "accountId": "00003",
+    "name": "John John",
+    "accountType": "PARTNER",
+    "cb": 5000,
+    "docb": "",
+    "loans": [
+        {
+            "dot": "10/10/2009",
+            "amount": 1200,
+            "month": "January"
+        },
+        {
+            "dot": "10/10/2019",
+            "amount": 1000,
+            "month": "February"
+        }
+    ],
+    "waivers": [
+        {
+            "dow": "",
+            "amount": 100
+        },
+        {
+            "dow": "",
+            "amount": 200
+        }
+    ],
+    "payments": [
+        {
+            "dop": "",
+            "amount": 1000
+        },
+        {
+            "dop": "",
+            "amount": 500
+        }
+    ]
+}
