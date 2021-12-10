@@ -1,7 +1,7 @@
 {
     "accountId": "00001",
     "name": "John Doe",
-    "accountType": "PARTNER",
+    "accountType": "partner",
     "cb": 5000,
     "docb": "",
     "loans": [

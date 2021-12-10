@@ -2,16 +2,16 @@
     {
       "accountId": "00001",
       "name": "John Doe",
-      "accountType": "PARTNER"
+      "accountType": "partner"
     },
     {
       "accountId": "00002",
       "name": "Jane Doe",
-      "accountType": "BORROWER"
+      "accountType": "borrower"
     },
     {
       "accountId": "00003",
       "name": "John John",
-      "accountType": "PARTNER"
+      "accountType": "partner"
     }
   ]

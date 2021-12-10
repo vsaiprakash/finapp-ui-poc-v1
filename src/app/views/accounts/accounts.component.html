@@ -1,10 +1,36 @@
 <h1 class="display-4 text-center text-info">Accounts</h1>
+<form [formGroup]="accountsFilterForm">
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">Account ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Account Type</th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="account-id">
+                        Account ID
+                    </label>
+                    <input class="form-control" id="account-id" type="text" formControlName="accountId">
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="name">
+                        Name
+                    </label>
+                    <input class="form-control" id="name" type="text" formControlName="name">
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="account-type">
+                        Account Type
+                    </label>
+                    <select class="form-control" id="account-type" formControlName="accountType">
+                        <option value="" selected>All</option>
+                        <option value="partner">Partner</option>
+                        <option value="borrower">Borrower</option>
+                      </select> 
+                </div>
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -17,3 +43,4 @@
         </ng-container>
     </tbody>
 </table>
+</form>
