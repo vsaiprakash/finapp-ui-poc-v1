@@ -1,7 +1,7 @@
 {
     "accountId": "00002",
     "name": "Jane Doe",
-    "accountType": "BORROWER",
+    "accountType": "borrower",
     "cb": 5000,
     "docb": "",
     "loans": [
