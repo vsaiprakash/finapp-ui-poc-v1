@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
 import { DataService } from 'src/app/services/data.service';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'accounts',
@@ -20,7 +21,10 @@ export class AccountsComponent implements OnInit {
   originalData: any;
   data:any;
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {
+  constructor(
+    private dataService: DataService, 
+    private route: ActivatedRoute,
+    private utilService: UtilService) {
     this.data = this.route.snapshot.data['accounts'];
     this.originalData = this.data;
     // this.dataService.getAccounts().subscribe(data => {
@@ -35,7 +39,7 @@ export class AccountsComponent implements OnInit {
       //   accountsFilter.name, 
       //   accountsFilter.accountType);
 
-        this.data = this.filterDataTable(
+        this.data = this.utilService.filterDataTable(
           this.originalData,
           [
             { "key": "accountId", "value": accountsFilter.accountId , "type": "text"},
@@ -51,57 +55,57 @@ export class AccountsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  filterAccountsTable(originalData: any, ...args: any[]){
-    let data = originalData;
-    const [ accountId, name, accountType ] = args;
+  // filterAccountsTable(originalData: any, ...args: any[]): any{
+  //   let data = originalData;
+  //   const [ accountId, name, accountType ] = args;
 
-    if(accountId!=''){
-      data = data.filter((entry: any) => {
-        return (entry.accountId.includes(accountId))
-      });
-    }
+  //   if(accountId!=''){
+  //     data = data.filter((entry: any) => {
+  //       return (entry.accountId.includes(accountId))
+  //     });
+  //   }
 
-    if(name!=''){
-      data = data.filter((entry: any) => {
-        return (entry.name.includes(name))
-      });
-    }
+  //   if(name!=''){
+  //     data = data.filter((entry: any) => {
+  //       return (entry.name.includes(name))
+  //     });
+  //   }
 
-    if(accountType!=''){
-      data = data.filter((entry: any) => {
-        return entry.accountType === accountType
-      });
-    }
+  //   if(accountType!=''){
+  //     data = data.filter((entry: any) => {
+  //       return entry.accountType === accountType
+  //     });
+  //   }
 
-    return data;
-  }
+  //   return data;
+  // }
 
-  filterDataTable(
-    originalData: any,
-    inputData :any[]){
+  // filterDataTable(
+  //   originalData: any,
+  //   inputData :any[]){
 
-    let data = originalData;
+  //   let data = originalData;
 
-    inputData.forEach(record => {
-      if(record.value!=''){
-        switch(record.type) {
-          case "text":
-            data = data.filter((entry: any) => {
-              return (entry[record.key].includes(record.value));
-            });
-            break;
-          case "select":
-            data = data.filter((entry: any) => {
-              return entry[record.key] === record.value;
-            });
-            // code block
-            break;
-          default:
-            // code block
-        }
-      }
-    });
+  //   inputData.forEach(record => {
+  //     if(record.value!=''){
+  //       switch(record.type) {
+  //         case "text":
+  //           data = data.filter((entry: any) => {
+  //             return (entry[record.key].includes(record.value));
+  //           });
+  //           break;
+  //         case "select":
+  //           data = data.filter((entry: any) => {
+  //             return entry[record.key] === record.value;
+  //           });
+  //           // code block
+  //           break;
+  //         default:
+  //           // code block
+  //       }
+  //     }
+  //   });
 
-    return data;
-  }
+  //   return data;
+  // }
 }
