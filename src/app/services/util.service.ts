@@ -7,7 +7,7 @@ export class UtilService {
 
   constructor() { }
 
-  filterDataTable( originalData: any, inputData :any[] ){
+  filterDataTable( originalData: any[], inputData :any[] ){
     let data = originalData;
 
     inputData.forEach(record => {
@@ -28,6 +28,53 @@ export class UtilService {
         }
       }
     });
+
+    return data;
+  }
+
+  sortDataTable( originalData: any[], inputData: any ) {
+    let data = originalData;
+
+    switch(inputData.type) {
+      case "number":
+        switch(inputData.option) {
+          case "":
+          case null:
+          case "asc":
+            data.sort((a,b)=>{
+              return (a[inputData.key] - b[inputData.key]);
+            });
+            break;
+          case "desc":
+            data.sort((a,b)=>{
+              return (b[inputData.key] - a[inputData.key]);
+            });
+            break;
+          default:
+            console.log("UNSUPPORTED OPTION");
+        }
+        break;
+      case "string":
+        switch(inputData.option) {
+          case "":
+          case null:
+          case "asc":
+            data.sort((a,b)=>{
+              return a[inputData.key].localeCompare(b[inputData.key]);
+            });
+            break;
+          case "desc":
+            data.sort((a,b)=>{
+              return b[inputData.key].localeCompare(a[inputData.key]);
+            });
+            break;
+          default:
+            console.log("UNSUPPORTED OPTION");
+        }
+        break;
+      default:
+        console.log("NOT SUPPORTED TYPE");
+    }
 
     return data;
   }

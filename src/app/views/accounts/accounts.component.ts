@@ -46,13 +46,21 @@ export class AccountsComponent implements OnInit {
             { "key": "name", "value": accountsFilter.name , "type": "text"},
             { "key": "accountType", "value": accountsFilter.accountType , "type": "select"}
           ]
-        )
+        );
+
       });
 
 
   }
 
   ngOnInit(): void {
+  }
+
+  sort1(){
+    console.log("sort1");
+    this.data = this.utilService.sortDataTable(this.originalData, {
+      key: "name", type: "string", option: "asc"
+    })
   }
 
   // filterAccountsTable(originalData: any, ...args: any[]): any{

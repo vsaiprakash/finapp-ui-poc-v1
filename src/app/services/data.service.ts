@@ -16,4 +16,10 @@ export class DataService {
   getAccount(accountId: string){
     return this.http.get("assets/data/accounts/"+accountId+".json");
   }
+
+  addAccount(newAccount: any) {
+    return this.http.post("", newAccount, {
+      //security token
+    });
+  }
 }
