@@ -33,11 +33,6 @@ export class AccountsComponent implements OnInit {
 
     this.accountsFilterForm.valueChanges.subscribe(accountsFilter => {
       this.data = this.originalData;
-      // this.data = this.filterAccountsTable(
-      //   this.originalData,
-      //   accountsFilter.accountId, 
-      //   accountsFilter.name, 
-      //   accountsFilter.accountType);
 
         this.data = this.utilService.filterDataTable(
           this.originalData,
@@ -63,57 +58,4 @@ export class AccountsComponent implements OnInit {
     })
   }
 
-  // filterAccountsTable(originalData: any, ...args: any[]): any{
-  //   let data = originalData;
-  //   const [ accountId, name, accountType ] = args;
-
-  //   if(accountId!=''){
-  //     data = data.filter((entry: any) => {
-  //       return (entry.accountId.includes(accountId))
-  //     });
-  //   }
-
-  //   if(name!=''){
-  //     data = data.filter((entry: any) => {
-  //       return (entry.name.includes(name))
-  //     });
-  //   }
-
-  //   if(accountType!=''){
-  //     data = data.filter((entry: any) => {
-  //       return entry.accountType === accountType
-  //     });
-  //   }
-
-  //   return data;
-  // }
-
-  // filterDataTable(
-  //   originalData: any,
-  //   inputData :any[]){
-
-  //   let data = originalData;
-
-  //   inputData.forEach(record => {
-  //     if(record.value!=''){
-  //       switch(record.type) {
-  //         case "text":
-  //           data = data.filter((entry: any) => {
-  //             return (entry[record.key].includes(record.value));
-  //           });
-  //           break;
-  //         case "select":
-  //           data = data.filter((entry: any) => {
-  //             return entry[record.key] === record.value;
-  //           });
-  //           // code block
-  //           break;
-  //         default:
-  //           // code block
-  //       }
-  //     }
-  //   });
-
-  //   return data;
-  // }
 }
