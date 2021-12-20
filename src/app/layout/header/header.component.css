@@ -1,0 +1,5 @@
+.nav-bar-item:hover {
+    /* cursor: pointer; */
+    border-color: cornflowerblue;
+    color: cornflowerblue;
+}
