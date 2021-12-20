@@ -8,13 +8,15 @@ import { DaybookResolver } from './services/daybook.resolver';
 import { AccountComponent } from './views/account/account.component';
 import { AccountsComponent } from './views/accounts/accounts.component';
 import { DaybookComponent } from './views/daybook/daybook.component';
+import { HomeComponent } from './views/home/home.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {
     path: '', component: ShellComponent,
     children: [
-      { path: '',   redirectTo: '/accounts', pathMatch: 'full' },
+      { path: '',   redirectTo: '/home', pathMatch: 'full' },
+      { path: 'home', component: HomeComponent },
       { path: 'daybook', resolve: { daybook: DaybookResolver }, component: DaybookComponent },
       { path: 'accounts', resolve: { accounts: AccountsResolver }, component: AccountsComponent },
       { path: 'account/:accountId', resolve: { account: AccountResolver }, component: AccountComponent },

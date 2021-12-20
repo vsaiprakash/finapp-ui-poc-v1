@@ -14,6 +14,7 @@ import { PageNotFoundComponent } from './views/page-not-found/page-not-found.com
 import { DataService } from './services/data.service';
 import { AccountResolver } from './services/account.resolver';
 import { AddAccountComponent } from './forms/add-account/add-account.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddAccountComponent } from './forms/add-account/add-account.component';
     AccountComponent,
     ShellComponent,
     PageNotFoundComponent,
-    AddAccountComponent
+    AddAccountComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
