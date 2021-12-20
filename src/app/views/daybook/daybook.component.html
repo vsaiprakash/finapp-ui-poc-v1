@@ -1,21 +1,72 @@
-<h1 class="display-4 text-center">Day Book</h1>
-<table class="table table-striped">
+<h1 class="display-4 text-center text-info">Day Book</h1>
+<form [formGroup]="daybookFilterForm">
+<table class="table table-striped table-responsive">
     <thead>
         <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Type</th>
-            <th scope="col">ID</th>
-            <th scope="col">Debit/In</th>
-            <th scope="col">Credit/Out</th>
-            <th scope="col">Total Amount</th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="date">
+                        Date
+                    </label>
+                    <input class="form-control" id="date" type="text" disabled>
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="transaction-type">
+                        Type
+                    </label>
+                    <select class="form-control" id="transaction-type" formControlName="transactionType">
+                        <option value="" selected>All</option>
+                        <option value="byBorrower">By Borrower</option>
+                        <option value="toBorrower">To Borrower</option>
+                        <option value="byPartner">By Partner</option>
+                        <option value="toPartner">To Partner</option>
+                        <option value="deductions">Deductions</option>
+                        <option value="adjustments">Adjustments</option>
+                      </select> 
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="account-id">
+                        Account ID
+                    </label>
+                    <input class="form-control" id="account-id" type="text" formControlName="accountId">
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="debitIn">
+                        Debit/In
+                    </label>
+                    <input class="form-control" id="debitIn" type="text" disabled>
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="creditOut">
+                        Credit/Out
+                    </label>
+                    <input class="form-control" id="creditOut" type="text" disabled>
+                </div>
+            </th>
+            <th scope="col">
+                <div class="form-group">
+                    <label for="totalAmount">
+                        Total Amount
+                    </label>
+                    <input class="form-control" id="totalAmount" type="text" disabled>
+                </div>
+            </th>
         </tr>
     </thead>
     <tbody>
         <ng-container *ngFor="let transaction of data">
             <tr>
                 <th scope="row">{{transaction.date}}</th>
-                <td>{{transaction.type}}</td>
-                <td>{{transaction.id}}</td>
+                <td>{{camelToSentenceCase(transaction.transactionType)}}</td>
+                <td>{{transaction.accountId}}</td>
                 <td>{{transaction.debitIn}}</td>
                 <td>{{transaction.creditOut}}</td>
                 <td>{{transaction.totalAmt}}</td>
@@ -23,14 +74,4 @@
         </ng-container>
     </tbody>
 </table>
-<form>
-    <div class="form-row">
-      <div class="col">
-        <input type="text" class="form-control" placeholder="First name">
-      </div>
-      <div class="col">
-        <input type="text" class="form-control" placeholder="Last name">
-      </div>
-    </div>
-  </form>
-
+</form>

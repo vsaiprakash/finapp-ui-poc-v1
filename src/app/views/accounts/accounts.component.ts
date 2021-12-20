@@ -33,17 +33,15 @@ export class AccountsComponent implements OnInit {
 
     this.accountsFilterForm.valueChanges.subscribe(accountsFilter => {
       this.data = this.originalData;
-
-        this.data = this.utilService.filterDataTable(
-          this.originalData,
-          [
-            { "key": "accountId", "value": accountsFilter.accountId , "type": "text"},
-            { "key": "name", "value": accountsFilter.name , "type": "text"},
-            { "key": "accountType", "value": accountsFilter.accountType , "type": "select"}
-          ]
-        );
-
-      });
+      this.data = this.utilService.filterDataTable(
+        this.originalData,
+        [
+          { "key": "accountId", "value": accountsFilter.accountId, "type": "text" },
+          { "key": "name", "value": accountsFilter.name, "type": "text" },
+          { "key": "accountType", "value": accountsFilter.accountType, "type": "select" }
+        ]
+      );
+    });
 
 
   }
@@ -51,10 +49,21 @@ export class AccountsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  camelToSentenceCase(inputText: string):string {
+    return this.utilService.camelToSentenceCase(inputText);
+  }
+
   sort1(){
     console.log("sort1");
     this.data = this.utilService.sortDataTable(this.originalData, {
       key: "name", type: "string", option: "asc"
+    })
+  }
+
+  sort2(){
+    console.log("sort2");
+    this.data = this.utilService.sortDataTable(this.originalData, {
+      key: "name", type: "string", option: "desc"
     })
   }
 

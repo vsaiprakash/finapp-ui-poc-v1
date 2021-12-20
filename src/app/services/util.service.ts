@@ -78,4 +78,11 @@ export class UtilService {
 
     return data;
   }
+
+  // https://stackoverflow.com/questions/7225407/convert-camelcasetext-to-sentence-case-text
+  camelToSentenceCase(inputText: string) {
+    const result = inputText.replace(/([A-Z])/g, " $1");
+    const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
+    return finalResult;
+  }
 }

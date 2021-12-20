@@ -22,4 +22,8 @@ export class DataService {
       //security token
     });
   }
+
+  getAllTransactions(): Observable<any> {
+    return this.http.get("assets/data/transactions.json");
+  }
 }

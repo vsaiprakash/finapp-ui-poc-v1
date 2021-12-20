@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
+import { UtilService } from 'src/app/services/util.service';
 
 @Component({
   selector: 'daybook',
@@ -7,28 +11,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DaybookComponent implements OnInit {
 
-  data:any = [
-    {
-      date: "12/12/21",
-      type: "By Borrower",
-      id: "1234",
-      debitIn: "",
-      creditOut: "30",
-      totalAmt: "70"
-    },
-    {
-      date: "12/12/21",
-      type: "To Borrower",
-      id: "5678",
-      debitIn: "20",
-      creditOut: "",
-      totalAmt: "50"
-    }
-  ]
+  daybookFilterForm: FormGroup = new FormGroup({
+    transactionType: new FormControl(''),
+    accountId: new FormControl('')
+  });
 
-  constructor() { }
+  originalData: any;
+  data:any;
+
+  constructor(
+    private dataService: DataService, 
+    private route: ActivatedRoute,
+    private utilService: UtilService) {
+    // this.dataService.getAllTransactions().subscribe(data => {
+    //   this.data = data;
+    // });
+    this.data = this.route.snapshot.data['daybook'];
+    this.originalData = this.data;
+
+    this.daybookFilterForm.valueChanges.subscribe(daybookFilter => {
+      this.data = this.originalData;
+      this.data = this.utilService.filterDataTable(
+        this.originalData,
+        [
+          { "key": "transactionType", "value": daybookFilter.transactionType, "type": "select" },
+          { "key": "accountId", "value": daybookFilter.accountId, "type": "text" }
+        ]
+      );
+      console.log(this.data);
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+  camelToSentenceCase(inputText: string):string {
+    return this.utilService.camelToSentenceCase(inputText);
   }
 
 }

@@ -1,11 +1,7 @@
 <h1 class="display-4 text-center text-info">Accounts</h1>
 <form [formGroup]="accountsFilterForm">
-<table class="table table-hover">
+<table class="table table-hover table-responsive">
     <thead>
-        <tr>
-            <button (click)="sort1()">Sort 1</button>
-        </tr>
-
         <tr>
             <th scope="col">
                 <div class="form-group">
@@ -40,9 +36,9 @@
     <tbody>
         <ng-container *ngFor="let account of data">
             <tr role="button" [routerLink]="['/account', account.accountId]">
-                <th scope="row">{{account.accountId}}</th>
+                <th scope="row" class="accountId">{{account.accountId}}</th>
                 <td>{{account.name}}</td>
-                <td>{{account.accountType}}</td>
+                <td>{{camelToSentenceCase(account.accountType)}}</td>
             </tr>
         </ng-container>
     </tbody>

@@ -1,0 +1,18 @@
+[
+    {
+      "date": "12/12/21",
+      "transactionType": "byBorrower",
+      "accountId": "1234",
+      "debitIn": "",
+      "creditOut": "30",
+      "totalAmt": "70"
+    },
+    {
+      "date": "12/12/21",
+      "transactionType": "toBorrower",
+      "accountId": "5678",
+      "debitIn": "20",
+      "creditOut": "",
+      "totalAmt": "50"
+    }
+  ]

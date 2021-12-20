@@ -10,11 +10,11 @@ import { DataService } from './data.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountsResolver implements Resolve<any> {
+export class DaybookResolver implements Resolve<any> {
 
-  constructor(private dataService: DataService){ }
+  constructor(private dataService: DataService){}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
-    return this.dataService.getAccounts();
+    return this.dataService.getAllTransactions();
   }
 }

@@ -10,7 +10,7 @@ import { DataService } from './data.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AccountResolver implements Resolve<boolean> {
+export class AccountResolver implements Resolve<any> {
 
   constructor(private dataService: DataService){ }
 
