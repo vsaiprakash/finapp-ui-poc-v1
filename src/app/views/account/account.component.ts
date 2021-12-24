@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 
-import { Auth } from 'aws-amplify';
-
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -32,9 +30,6 @@ export class AccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    Auth.currentAuthenticatedUser().then(data => {
-      console.log("account - currentAuthenticatedUser", data);
-    });
   }
 
 }

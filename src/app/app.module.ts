@@ -18,6 +18,7 @@ import { DataService } from './services/data.service';
 import { AddAccountComponent } from './forms/add-account/add-account.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './layout/login/login.component';
+import { UnauthorizedUserComponent } from './views/unauthorized-user/unauthorized-user.component';
 
 
 Amplify.configure({
@@ -41,7 +42,8 @@ Amplify.configure({
     PageNotFoundComponent,
     AddAccountComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    UnauthorizedUserComponent
   ],
   imports: [
     BrowserModule,

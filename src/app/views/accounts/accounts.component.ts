@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
-import { Auth } from 'aws-amplify';
-
 import { DataService } from 'src/app/services/data.service';
 import { UtilService } from 'src/app/services/util.service';
 
@@ -49,9 +47,6 @@ export class AccountsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    Auth.currentAuthenticatedUser().then(data => {
-      console.log("accounts - currentAuthenticatedUser", data);
-    });
   }
 
   camelToSentenceCase(inputText: string):string {
