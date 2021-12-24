@@ -1,14 +1,19 @@
 <div class="login-body">
+    <!-- [(ngModel)]="password"  [(ngModel)]="loginForm.username"  -->
     <div class="card">
         <div class="card-body">
             <form [formGroup]="loginForm">
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input class="form-control" type="text" name="username" [(ngModel)]="username" required placeholder="Enter username">
+                    <input class="form-control" type="text" name="username" 
+                    formControlName="username"
+                    required placeholder="Enter username">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input class="form-control" type="password" name="password" [(ngModel)]="password" required id="password"
+                    <input class="form-control" type="password" name="password" 
+                    formControlName="password"
+                    required id="password"
                         placeholder="Enter password">
                 </div>
                 <div class="form-group">
