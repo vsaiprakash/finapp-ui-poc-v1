@@ -15,7 +15,6 @@ import { AccountComponent } from './views/account/account.component';
 import { ShellComponent } from './layout/shell/shell.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 import { DataService } from './services/data.service';
-import { AccountResolver } from './services/account.resolver';
 import { AddAccountComponent } from './forms/add-account/add-account.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './layout/login/login.component';
@@ -52,8 +51,7 @@ Amplify.configure({
     ReactiveFormsModule
   ],
   providers: [
-    DataService,
-    AccountResolver
+    DataService
   ],
   bootstrap: [AppComponent]
 })
