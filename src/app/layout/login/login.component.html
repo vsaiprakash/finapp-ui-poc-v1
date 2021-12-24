@@ -1,0 +1,20 @@
+<div class="login-body">
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" type="text" name="username" [(ngModel)]="username" required placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" type="password" name="password" [(ngModel)]="password" required id="password"
+                        placeholder="Enter password">
+                </div>
+                <div class="form-group">
+                    <button (click)="loginWithCognito()" class="btn btn-primary btn-block" type="button"> Log In </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

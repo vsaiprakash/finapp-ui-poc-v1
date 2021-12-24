@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddAccountComponent } from './forms/add-account/add-account.component';
+import { LoginComponent } from './layout/login/login.component';
 import { ShellComponent } from './layout/shell/shell.component';
 import { AccountResolver } from './services/account.resolver';
 import { AccountsResolver } from './services/accounts.resolver';
@@ -12,6 +13,8 @@ import { HomeComponent } from './views/home/home.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 const routes: Routes = [
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   {
     path: '', component: ShellComponent,
     children: [
