@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 import { UtilService } from 'src/app/services/util.service';
 
+import { Auth } from 'aws-amplify';
+
 @Component({
   selector: 'daybook',
   templateUrl: './daybook.component.html',
@@ -43,6 +45,9 @@ export class DaybookComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    Auth.currentAuthenticatedUser().then(data => {
+      console.log("daybook - currentAuthenticatedUser", data);
+    });
   }
 
   camelToSentenceCase(inputText: string):string {
