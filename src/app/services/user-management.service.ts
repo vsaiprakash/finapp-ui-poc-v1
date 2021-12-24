@@ -28,8 +28,16 @@ export class UserManagementService {
     }
   }
 
-  async getLoggedInUser(){
-    return await Auth.currentAuthenticatedUser();
+  async getLoggedInUserSession(){
+    // return await Auth.currentAuthenticatedUser();
+    // let user = await Auth.currentUserPoolUser();
+    let user = await Auth.currentSession();
+    // console.log("user", user);
+    return user;
+  }
+
+   async getIdToken() {
+    return (await this.getLoggedInUserSession()).getIdToken().getJwtToken();
   }
 
 }
