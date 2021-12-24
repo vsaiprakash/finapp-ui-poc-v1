@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Auth } from 'aws-amplify';
+import { from, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserManagementService {
 
-  constructor(private router: Router) { }
+
+  constructor(private router: Router) {  }
 
   async loginWithCognito(username: string, password: string, redirectRoute: string) {
     try {
@@ -28,16 +30,18 @@ export class UserManagementService {
     }
   }
 
-  async getLoggedInUserSession(){
-    // return await Auth.currentAuthenticatedUser();
-    // let user = await Auth.currentUserPoolUser();
-    let user = await Auth.currentSession();
-    // console.log("user", user);
-    return user;
+  getLoggedInUserSession():Observable<any> {
+    let user = Auth.currentSession();
+    return from(user);
   }
 
-   async getIdToken() {
-    return (await this.getLoggedInUserSession()).getIdToken().getJwtToken();
+  getIdToken(): Observable<any> {
+    // return Observable.fromPromise((await this.getLoggedInUserSession()).getIdToken().getJwtToken());
+    return this.getLoggedInUserSession()
+      .pipe(
+        map(value => {
+          value.getIdToken().getJwtToken()
+        })
+      )
   }
-
 }

@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { UserManagementService } from './user-management.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UtilService {
 
-  constructor() { }
+  constructor(private user: UserManagementService) { }
 
   filterDataTable( originalData: any[], inputData :any[] ){
     let data = originalData;
@@ -84,5 +85,13 @@ export class UtilService {
     const result = inputText.replace(/([A-Z])/g, " $1");
     const finalResult = result.charAt(0).toUpperCase() + result.slice(1);
     return finalResult;
+  }
+
+  async getAuthHeader(){
+    let idToken = await this.user.getIdToken()
+    let headers = new Headers();
+    headers.append('Authorization', `Bearer ${idToken}`);
+
+    return headers;
   }
 }
