@@ -4,6 +4,7 @@ export class Constants {
     static env: string = "/default";
 
     static endpoints: any = {
+        test: "/test2",
         account: "/account",
         accounts: "/accounts",
         daybook: "/daybook"

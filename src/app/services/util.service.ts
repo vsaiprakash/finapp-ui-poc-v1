@@ -87,11 +87,13 @@ export class UtilService {
     return finalResult;
   }
 
-  async getAuthHeader(){
-    let idToken = await this.user.getIdToken()
-    let headers = new Headers();
-    headers.append('Authorization', `Bearer ${idToken}`);
+  // getAuthHeader(){
+  //   let idToken = this.user.getIdToken().subscribe(token => {
 
-    return headers;
-  }
+  //   })
+  //   let headers = new Headers();
+  //   headers.append('Authorization', `Bearer ${idToken}`);
+
+  //   return headers;
+  // }
 }

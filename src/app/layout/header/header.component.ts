@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserManagementService } from 'src/app/services/user-management.service';
 
 @Component({
   selector: 'header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public user: UserManagementService) { }
 
   ngOnInit(): void {
+  }
+
+  logout(){
+    this.user.logoutWithCognito();
   }
 
 }

@@ -19,6 +19,7 @@ import { AddAccountComponent } from './forms/add-account/add-account.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './layout/login/login.component';
 import { UnauthorizedUserComponent } from './views/unauthorized-user/unauthorized-user.component';
+import { AccessGuard } from './services/guards/access.guard';
 
 
 Amplify.configure({
@@ -53,7 +54,8 @@ Amplify.configure({
     ReactiveFormsModule
   ],
   providers: [
-    DataService
+    DataService,
+    AccessGuard
   ],
   bootstrap: [AppComponent]
 })

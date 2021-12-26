@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddAccountComponent } from './forms/add-account/add-account.component';
 import { LoginComponent } from './layout/login/login.component';
 import { ShellComponent } from './layout/shell/shell.component';
+import { AccessGuard } from './services/guards/access.guard';
 import { AccountResolver } from './services/resolvers/account.resolver';
 import { AccountsResolver } from './services/resolvers/accounts.resolver';
 import { DaybookResolver } from './services/resolvers/daybook.resolver';
@@ -13,10 +14,22 @@ import { HomeComponent } from './views/home/home.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '',   redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+  { 
+    path: '',   
+    redirectTo: '/login', 
+    pathMatch: 'full', 
+    data:{ requiresLogin: false } 
+  },
+  // { path: '',   redirectTo: '/app', pathMatch: 'full', data:{ requiresLogin: true }  },
+  { 
+    path: 'login', 
+    component: LoginComponent, 
+    data:{ requiresLogin: false }
+  },
   {
     path: '', component: ShellComponent,
+    data:{ requiresLogin: true },
+    canActivate: [ AccessGuard ],
     children: [
       { path: '',   redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
